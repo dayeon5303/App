@@ -1,0 +1,649 @@
+@font-face {
+    font-family: 'RoundedFixedsys';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* 메인홈 전체 */
+.home-container {
+  min-height: 100vh;
+  height: auto;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 0;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+
+
+/* 메인홈 영문 */
+.main-text-wrapper {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+
+   animation: twinkle 1.8s infinite;
+}
+
+@keyframes twinkle {
+
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+    filter: brightness(1.8);
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
+
+.main-text {
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+
+  font-family: 'RoundedFixedsys';
+  font-size: 5.5rem;
+  font-weight: 900;
+  text-align: center;
+
+  background: linear-gradient(90deg, #f38200, #e94b02);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  letter-spacing: 0.6px;
+  line-height: 1;
+  padding: 40px 0;
+}
+
+.home-page {
+  position: relative;
+}
+
+.home-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.08) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+
+/* 홈 날씨,기사 버튼키 */
+
+.home-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5vw;
+  margin-top: 5vh;
+}
+
+.enter-key {
+  width: 10vw;
+  max-width: 160px;
+  min-width: 100px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* 엔터키 움직임 */
+.enter-key.pressed {
+  transform: translateY(8px);
+}
+
+
+/* 현재시간 안내 */
+.clock {
+  position: fixed !important;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'RoundedFixedsys';
+  font-size: 30px;
+  color: #000000;
+  z-index: 9999 !important;
+  white-space: nowrap;
+}
+
+
+
+
+/* --------------날씨페이지-------------- */
+
+/* 날씨페이지 전체 */
+.weather-page {
+  font-family: 'RoundedFixedsys';
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000; 
+  display: flex;
+  padding: 100px;
+  align-items: center;
+  flex-direction: column;  
+  text-align: center;
+}
+
+.weather-page h3{
+  color: #f4f4f4;
+  font-size: 20px;
+  margin: 30px 0;
+  display: inline-block;
+  letter-spacing: 35px;
+  margin-right: -35px;
+  color: #ff9900;
+}
+
+/* 날씨페이지 배경 */
+.weather-bg {
+  width: 95vw; 
+  max-width: 1600px;
+  height: auto;
+  background-image: url('/img/weather.png');
+  aspect-ratio: 30/9;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px; 
+}
+
+
+
+.weather-overlay {
+  text-align: center;
+  padding: 20px 40px;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.temperature {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.description {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+
+/* 날씨 검색창 */
+.weather-search {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.weather-search {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.weather-search-input {
+  font-family: 'RoundedFixedsys';
+  padding: 10px;
+  font-size: 1.1rem;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.weather-search-button {
+  font-family: 'RoundedFixedsys';
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ff9900;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+/* 현재위치 버튼 */
+.search_btn{
+  font-family: 'RoundedFixedsys';
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 20px 0;
+  
+}
+
+
+/* gohome- 메인홈돌아가기 */
+.home{
+  font-family: 'RoundedFixedsys';
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #ff9100;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.back-home-bottom:hover {
+  opacity: 1;
+}
+
+
+
+
+/* ---------뉴스페이지 작업----------- */
+
+.news-title{
+  font-family: 'RoundedFixedsys';
+  font-size: 35px;
+  margin-top: 60px;
+}
+
+.background-text {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 120px;
+  font-weight: bold;
+  color: #ff9100;
+  letter-spacing: 10px;
+  white-space: nowrap;
+
+  pointer-events: none;
+  font-family: 'RoundedFixedsys';
+
+  animation: glitchMove 5s infinite alternate,
+             neonFlicker 1.5s infinite alternate;
+}
+
+/* 위아래 움직이는 부분 */
+@keyframes glitchMove {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+/* 깜빡이는 부분 */
+@keyframes neonFlicker {
+  from {
+    text-shadow:
+      0 0 5px #ff9100,
+      0 0 10px #ff9100;
+  }
+
+  to {
+    text-shadow:
+      0 0 15px #ff9100,
+      0 0 30px #ff5500,
+      0 0 50px #ff2200;
+  }
+}
+
+
+
+
+
+.monitor-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-page {
+  background: black;
+  min-height: 100vh;
+  color: #ff9100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 모니터 전체 */
+.monitor-box {
+  background: url("/img/news02.png") no-repeat center;
+  background-size: contain;
+   width: 90%;
+  max-width: 600px;
+  height: auto;
+  aspect-ratio: 6 / 5; 
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 모니터 내부 */
+.monitor-inner {
+  position: relative;
+  padding: 90px 80px;
+  box-sizing: border-box;
+}
+
+.monitor-screen {
+  position: relative;
+}
+
+/* 모니터안 자글자글표현한부분 */
+.monitor-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+
+/* 모니터 안 = 기사 이미지만 */
+.monitor-screen img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 3px solid #ff9100;
+}
+
+/* 모니터 밖 텍스트 */
+.news-text {
+  margin-top: 20px;
+  color: #000000;
+}
+
+.news-headline {
+  font-family: 'RoundedFixedsys';
+  font-size: 18px;
+}
+
+.news-description {
+  font-family: 'RoundedFixedsys';
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* 뉴스 좌우클릭 버튼 */
+.prev-btn,
+.next-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev-btn {
+  left: -20px;
+}
+
+.next-btn {
+  right: -20px;
+}
+
+.prev-btn img,
+.next-btn img {
+  width: 40px;  
+  height: auto;
+  transition: 0.2s;
+}
+
+.prev-btn img:hover,
+.next-btn img:hover {
+  transform: scale(1.1); 
+}
+
+
+.go-home {
+  font-family: 'RoundedFixedsys';
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #ff9100;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.go-home:hover {
+  opacity: 0.7;
+}
+
+
+.home-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: url("img/back3.png") center/cover no-repeat;
+
+    opacity: 0.5; 
+
+    z-index: 0;
+  }
+
+
+
+
+/* --------------반응형------------- */
+
+@media screen and (min-width: 1024px) {
+
+  .home-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .home-container > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .main-text-wrapper{
+    margin: -10px;
+  }
+  
+}
+
+@media screen and (max-width: 1024px){
+  .main-text{
+    font-size: 13vw;
+    margin: 7vw;
+  }
+
+  .enter-key{
+    width: 15vw;
+  }
+
+}
+
+
+
+@media screen and (max-width: 820px){
+  .home-button-group{
+    margin-top: 10vh;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .main-text{
+    padding: 20px 0;
+  }
+  /* 모니터 여백조절 */
+  .monitor-box {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .home-button-group {
+  margin-top: 8vh;
+}
+
+
+
+
+
+
+
+  /* 상단 네온 글자 조절 */
+
+    .background-text {
+    font-size: 60px; 
+    top: 8%;
+    letter-spacing: 4px;
+  }
+
+  .news-title{
+    margin: 0;
+    font-size: 30px;
+  }
+
+
+  .prev-btn,
+  .next-btn {
+    top: auto !important;
+    bottom: -45px !important;
+    transform: none !important;
+  }
+
+  .prev-btn {
+    left: 31% !important;
+  }
+
+  .next-btn {
+    right: 31% !important;
+  }
+
+  .enter-key {
+  width: 30vw;
+  max-width: 110px;
+}
+
+.home-button-group{
+  gap: 30px;
+}
+
+.home-container::before {
+    background-position: 60% center;
+  }
+
+}
+
+
+@media screen and (max-width: 530px) {
+.monitor-inner {
+  padding: 100px 50px;
+}
+
+.news-description{
+  display: none;
+}
+
+
+.news-title{
+  margin-bottom: -20px;
+}
+
+
+
+}
+
+
+
+@media screen and (max-width: 480px) {
+.monitor-inner {
+  
+  padding: 120px 40px;
+  
+}
+
+.monitor-box {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+}
+
+
+@media screen and (max-width: 430px) {
+  .news-text{
+  margin: 5px 0;
+}
+
+.news-title{
+  margin-bottom: -40px;
+}
+
+
+}
+
+@media screen and (max-width: 390px) {
+.monitor-inner {
+  padding: 130px 40px;
+}
+
+.news-text{
+  margin: 0;
+}
+
+.news-text h3{
+  font-size: 15px;
+}
+}
