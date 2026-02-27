@@ -30,7 +30,7 @@ Want_App(원앱-원해)이라는 이름으로 제작되었습니다.
 📰 News API 사용
 
 🚀 배포 링크
-👉 https://github.com/dayeon5303/App/
+👉 https://dayeon5303.github.io/App/
 
 --------------------------------------------
 🛠 사용 기술
